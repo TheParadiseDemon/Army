@@ -1,54 +1,28 @@
 #include <bits/stdc++.h>
-#include "ARMYINFO.h"
-
-class Soldier;
-class Private;
-class Officer;
-class Sergant;
-class WarrantOfficer;
-
-typedef std::string ARRAYFORSUBJECTS[][1];
-typedef std::string ARRAYFORRULES[][4];
-
-class Soldier{
-
-public:
-
-    Rank rank;
-    MilitaryUnit militaryunit;
-    std::pair<MilitarySpecialization, Post> MOS; //Военнно-учётная специальность
-
-    virtual bool operator==(const Soldier a) const{
-        return this->MOS.second == a.MOS.second;
-    }
-
-    virtual bool operator<(const Soldier a) const{
-        return this->MOS.second < a.MOS.second;
-    }
-
-    virtual bool operator>(const Soldier a) const{
-        return this->MOS.second > a.MOS.second;
-    }
-
-};
-
-class Officer: public Soldier{
-
-};
-
-class Sergant: public Soldier{
-
-};
-
-class Privat: public Soldier{
-
-};
-
-class WarrantOfficer: public Soldier{
-
-};
+#include "ARMY_INFO.h"
 
 int main() {
+
+    MilitaryUnit militaryunit;
+    militaryunit.squad = 1;
+    militaryunit.battalion = 4;
+    militaryunit.company = 10;
+    militaryunit.platoon = 1;
+    militaryunit.militaryDivision = std::pair<int, char>(30632, 'A');
+    std::pair<MilitarySpecialization, Post>MOS = std::pair<MilitarySpecialization, Post>(driver, driver_mechanic);
+    auto Me = new Private();
+    std::cout << Me->rank << std::endl;
+    Me->Promotion();
+    std::cout << Me->rank << std::endl;
+
+    auto You = new Private(Rank::junior_lieutenant, militaryunit, MOS);
+    std::cout << (Me < You) << std::endl;
+
+    auto He = new Officer(Rank::junior_lieutenant, militaryunit, MOS, "lieutenant");
+    std::cout << He->GetManager() << std::endl;
+
+    Managment(*He, "Major");
+    std::cout << He->GetManager() << std::endl;
 
     return 0;
 }

@@ -3,4 +3,4 @@ project(Army)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Army main.cpp ARMYINFO.h)
+add_executable(Army main.cpp ARMY_INFO.h ARMY_INFO.cpp)
