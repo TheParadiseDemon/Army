@@ -1,0 +1,3 @@
+D:/Desktop files/C++ tries/Army/cmake-build-debug/CMakeFiles/Army.dir
+D:/Desktop files/C++ tries/Army/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Desktop files/C++ tries/Army/cmake-build-debug/CMakeFiles/rebuild_cache.dir
